@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xyra</title>
+    <script type="module" crossorigin src="/xyra-currency-converter/assets/index-BxuMzq64.js"></script>
+    <link rel="stylesheet" crossorigin href="/xyra-currency-converter/assets/index-B4ZJ0Ulw.css">
+  </head>
+  <body class="font-geist text-tprimary">
+    <header
+      class="bg-secondary flex items-center justify-between p-4 border-b border-bprimary px-8"
+    >
+      <h2 class="font-bold text-xl">Xyra</h2>
+    </header>
+
+    <h1 class="text-center mt-10 lg:text-6xl mb-2 font-bold text-4xl">
+      Currency Converter
+    </h1>
+    <p class="text-center lg:text-xl">
+      Get real-time exchange rates for <b>+200 currencies</b> instantly for
+      <strong>FREE</strong>
+    </p>
+
+    <form
+      id="convert-form"
+      class="mt-10 w-full max-w-xl mx-auto md:max-w-3xl lg:max-w-5xl bg-secondary p-4 rounded-lg border-bprimary border text-tsecondary"
+    >
+      <header>
+        <div class="flex items-center gap-1 font-bold">
+          <img
+            src="/xyra-currency-converter/icons/exchange.svg"
+            alt="Exchange icon"
+            width="24px"
+            height="24px"
+          />
+          <h2>Convert Currency</h2>
+        </div>
+        <p class="text-sm mt-1 mb-6">
+          Enter amount and select currencies to convert
+        </p>
+      </header>
+
+      <!-- Labels -->
+      <div class="flex items-center justify-between font-medium">
+        <label for="from" class="flex-1">From</label>
+        <!-- For the button -->
+        <span class="w-14"></span>
+        <label for="to" class="flex-1">To</label>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <select
+          id="from"
+          class="currency-choice currency-1 flex-1 min-w-0 border border-bprimary rounded-md p-2 text-sm font-medium"
+          name="from-currency"
+        ></select>
+        <button
+          id="swap-currency"
+          class="border border-bprimary cursor-pointer rounded-lg shadow-3xl h-10 w-10 p-2 flex-shrink-0"
+        >
+          <img
+            src="/xyra-currency-converter/icons/exchange.svg"
+            alt="Exchange icon"
+            width="24"
+            height="24"
+          />
+        </button>
+        <select
+          id="to"
+          class="currency-choice currency-2 flex-1 min-w-0 border border-bprimary rounded-md p-2 text-sm font-medium"
+          name="to-currency"
+        ></select>
+      </div>
+
+      <div class="space-y-2 mt-5 flex flex-col">
+        <label for="amount" class="font-medium">Amount</label>
+        <input
+          type="number"
+          class="flex-1 min-w-0 border border-bprimary rounded-md p-2 text-sm font-medium"
+          name="amount"
+          autocomplete="off"
+          placeholder="Enter amount"
+          step="any"
+          min="0"
+          required
+        />
+
+        <button
+          type="submit"
+          class="font-semibold bg-green-800 p-2 rounded-lg text-white"
+        >
+          Convert Currency
+        </button>
+      </div>
+
+      <section id="result" class="text-center mt-10 mb-10 hidden">
+        <h3 class="font-medium text-sm">Converted Amount</h3>
+        <h2 class="font-bold text-4xl my-1" id="result-currency"></h2>
+        <h4 class="font-semibold text-xs text-gray-500" id="result-info"></h4>
+        <h5 class="font-semibold text-xs text-gray-600" id="result-date"></h5>
+      </section>
+
+      <section
+        id="loading"
+        class="mt-10 hidden mb-10 flex-col items-center justify-center"
+      >
+        <img
+          src="/xyra-currency-converter/icons/loading.svg"
+          width="50px"
+          height="50px"
+          alt="LOADING ICON"
+          class="animate-spin"
+        />
+        <p class="font-semibold">CONVERTING...</p>
+      </section>
+    </form>
+
+    <section
+      class="mt-10 w-full max-w-xl mx-auto md:max-w-3xl lg:max-w-5xl bg-secondary p-4 rounded-lg border-bprimary border text-tsecondary"
+    >
+      <header>
+        <div class="flex items-center gap-1 font-bold">
+          <img
+            src="/xyra-currency-converter/icons/trend-up.svg"
+            alt="Trend Up Icon"
+            width="24px"
+            height="24px"
+          />
+          <h2>30-Day Exchange Rate Trend</h2>
+        </div>
+        <p class="text-sm mt-1 mb-6" id="exchange-rate-label"></p>
+      </header>
+
+      <canvas id="chart"></canvas>
+    </section>
+
+    <footer class="bg-secondary p-4 mt-20">
+      <h2 class="font-bold">This website is made as a personal project</h2>
+      <p class="text-xs font-semibold">
+        Check out the source code in here:
+        <a
+          href="https://github.com/osakitadev/xyra-currency-converter"
+          rel="nofollow"
+          target="_blank"
+          class="text-blue-400"
+        >
+          osakitadev/xyra-currency-converter
+        </a>
+      </p>
+    </footer>
+
+  </body>
+</html>
