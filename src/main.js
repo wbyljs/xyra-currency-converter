@@ -46,13 +46,13 @@ form.addEventListener('submit', async e => {
   const result = await convertCurrency(
     data.amount,
     data.fromCurrency,
-    data.toCurrency
+    data.toCurrency,
   )
 
-  resultCurrency.textContent = formatValue(result, data.fromCurrency)
+  resultCurrency.textContent = formatValue(result, data.toCurrency)
   resultInfo.textContent = `${formatValue(
     Number(data.amount),
-    data.fromCurrency
+    data.fromCurrency,
   )} = ${formatValue(result, data.toCurrency)}`
 
   updateChart(data.fromCurrency, data.toCurrency)
